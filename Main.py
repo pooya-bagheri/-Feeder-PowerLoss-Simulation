@@ -12,23 +12,17 @@ from Database.MainDB import Database
 
 
 
-Simulation=Simulations(Input) #initialize simulation object
-LoadProfGen=LoadProfileGen(Input,Simulation.GetBaseLoads())
-DB=Database(Input,Simulation.GetBaseLoads())
+Simulation=Simulations(Input) #initialize simulation model (including OpenDSS API) according to the Input file
+LoadProfGen=LoadProfileGen(Input,Simulation.GetBaseLoads()) #initialize the object to provide load profiles for the simulation study
+DB=Database(Input,Simulation.GetBaseLoads()) #initialize database according to input file and list of loads in the test system
 
-temp=[]
-while LoadProfGen.ContinueSimulation():
-    LoadProfile=LoadProfGen.NextLoadProfile()
+while LoadProfGen.ContinueSimulation(): #continue simulation until there is more load profile instants to be simulated
+    #Obtain the next load profile
+    LoadProfile=LoadProfGen.NextLoadProfile() 
+    #Modify simulation model according to new load profile
     Simulation.ModifyLoads(LoadProfile)
-    #DB.AppendResults(LoadProfGen.GetTimeInstantInfo(),LoadProfile,Simulation.GetResults())
-    LoadProfGen.ReportProgress()
-'''
-for i,conductor in enumerate(Cases.conductors):
-   Sim.BreakConductor(conductor)
-   for j,LoadProf in enumerate(Cases.LoadProfiles):
-        Sim.ModifyLoads(LoadProf)
-        DB.save_result(Sim.get_result())
-        print('%.1f%% Done, Time passed: %s' % (Cases.CompltedPerc(i,j),Sim.GetElapsedTime()))
-   Sim.ResetConductors()    
-print(DB) #gives the information on created DB from simulation results   
-   '''
+    #Get new simulation result and insert it into the database
+    DB.AppendResults(LoadProfGen.GetTimeInstantInfo(),LoadProfile,Simulation.GetResults())
+    LoadProfGen.ReportProgress() #Display the simulation progress and the time elapsed
+
+print(DB.GetDBfilePath()) #At the end, display the path to the generated output relational database containing simulation results!

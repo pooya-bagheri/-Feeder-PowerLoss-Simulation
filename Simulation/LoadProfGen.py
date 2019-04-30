@@ -38,8 +38,10 @@ class LoadProfileGen:
         return output
         
     def ReportProgress(self):
-        CompletedPortion=(self.__CurrentSimTime()-self.__StartSimTime)/(self.__EndSimTime-self.__StartSimTime)*100
-        print('%.1f%% is done, time passed:%s' % (CompletedPortion,str(datetime.now()-self.ObjInitTime)))
+        #printing the progress once per each 50 time instants
+        if self.__InstantId % 50 == 0: 
+            CompletedPortion=(self.__CurrentSimTime()-self.__StartSimTime)/(self.__EndSimTime-self.__StartSimTime)*100
+            print('%.1f%% is done, time passed:%s' % (CompletedPortion,str(datetime.now()-self.ObjInitTime)))
         
     def NextLoadProfile(self):
         self.__InstantId+=1 #Moving to next simulation time instant
