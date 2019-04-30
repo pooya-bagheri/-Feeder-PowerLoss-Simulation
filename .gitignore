@@ -1,7 +1,7 @@
 testclass.py
 __pycache__
-Simulation/IEEE123Bus/ieee123_EXP_LOSSES.CSV
-Simulation/IEEE123Bus/ieee123_EXP_VOLTAGES.CSV
+/Simulation/IEEE123Bus/ieee123_EXP_LOSSES.CSV
+/Simulation/IEEE123Bus/ieee123_EXP_VOLTAGES.CSV
 SimResultsIEEE123NodesCase1.db
 SimResultsIEEE123NodesCase2.db
 SimResultsIEEE123NodesCase3.db
