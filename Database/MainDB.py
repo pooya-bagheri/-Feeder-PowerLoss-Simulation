@@ -1,3 +1,8 @@
+"""
+A class defined to create and manage the database intended to contain simulation results
+@author: Pooya Bagheri
+"""
+
 import os
 import warnings
 from sqlalchemy import create_engine
@@ -54,7 +59,7 @@ class Database: #object of this class handles creation and modifications to data
     def  AppendLoadProfile(self,InstantID,LoadProfile):
         #Updating panda dataframe including instant load profile information
         self.__LoadsInfo.loc[:,'Scale']=LoadProfile
-        self.__LoadsInfo['InstantID']=InstantID
+        self.__LoadsInfo.loc[:,'InstantID']=InstantID
         #Appending the dataframe into the LoadProfiles table of database:
         self.__LoadsInfo.to_sql('LoadProfiles', con=self.__engine, if_exists='append',index=False)
         

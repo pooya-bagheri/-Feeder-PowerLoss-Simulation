@@ -1,6 +1,8 @@
 """
 Simulation engine that employs OpenDSS API
+@author: Pooya Bagheri
 """
+
 import win32com.client
 from pandas import DataFrame as df
 import pandas as pd

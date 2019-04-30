@@ -1,7 +1,8 @@
+"""
+Simulation Model Class
+@author: Pooya Bagheri
+"""
 
-"""
-Sim
-"""
 from Simulation.SimEngine import SimEngine
 
 class Simulations: #Takes care of simulations using OpenDSS API

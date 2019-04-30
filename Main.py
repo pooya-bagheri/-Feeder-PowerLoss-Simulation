@@ -1,6 +1,5 @@
 """
-
-@author: Pooya
+@author: Pooya Bagheri
 """
 
 #Importing Project packages:

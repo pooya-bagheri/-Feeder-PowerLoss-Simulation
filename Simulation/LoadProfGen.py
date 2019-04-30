@@ -1,3 +1,8 @@
+"""
+Class defined to generate random load profiles for the simulation study
+@author: Pooya Bagheri
+"""
+
 import random
 import math
 from datetime import timedelta, datetime
