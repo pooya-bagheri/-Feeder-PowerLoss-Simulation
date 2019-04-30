@@ -20,6 +20,7 @@ class Database: #object of this class handles creation and modifications to data
         InstantID=InstantInfo['InstantID']
         if not self.__FeederNodes:
             self.__FeederNodes=Vdata[['NodeID','Bus','Phase']]
+            self.AppendNodes()
         elif max(self.__FeederNodes['NodeID']!= Vdata['NodeID']):
             warnings.warn('Feeder Nodes (or their sequence) are changing during simulation!')
         self.AppendTime(InstantInfo)
