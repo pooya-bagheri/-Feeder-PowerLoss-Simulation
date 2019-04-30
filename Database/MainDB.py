@@ -11,7 +11,7 @@ from sqlalchemy import create_engine
 class Database: #object of this class handles creation and modifications to database recording simulation results
     def __init__(self,Input,Loads):
         FileName='SimResults'+Input['Systems'][Input['SysID']]+'Case'+str(Input['CaseStudyID']) #Name of DB file
-        self.__FilePath=Input['dir_path']+'\\OutputDBs\\'+FileName+'.db'
+        self.__FilePath=Input['dir_path']+'\\OutputDBs\\'+FileName+'.db' #Path of DB file
         try: #our DB engine cannot overwrite, so we delete the previous DB with the same SysID and CaseID  
             os.remove(self.__FilePath)
         except: 
