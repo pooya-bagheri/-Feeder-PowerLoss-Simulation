@@ -1,6 +1,5 @@
 -- Following SQL scripts will create blank tables for the DB recording simulation results
 -- author: Pooya Bagheri
-
 CREATE TABLE Instants (
     InstantID int NOT NULL,
     Day int NOT NULL,
