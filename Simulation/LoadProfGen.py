@@ -30,7 +30,7 @@ class LoadProfileGen:
             return True
     
     def __GenLoadProfCoeffs(self):
-        self.__Coeffs=[{'f':round(random.triangular(0, 12, 2)),'Mag':random.uniform(0,.5),'phase':random.uniform(0,math.pi),'PeakTime':random.uniform(.2,0.8),'Peak':random.uniform(.5,1.5)} for _ in range(self.__Nloads)]
+        self.__Coeffs=[{'f':round(random.triangular(0, 12, 2)),'Mag':random.uniform(.25,.5),'phase':random.uniform(0,math.pi),'PeakTime':random.uniform(.2,0.8),'Peak':random.uniform(.5,1.5)} for _ in range(self.__Nloads)]
         
     def GetLoadProfCoeffs(self):
         return self.__Coeffs
